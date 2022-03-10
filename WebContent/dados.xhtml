@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="titulo">
+		Dados	
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form>
+		<fieldset>
+		<h:dataTable id="tabelaPessoas" value="#{pessoaBean.pessoas}" var="pessoa">
+			<h:column>
+				<f:facet name="header">Nome </f:facet>
+				<h:outputText value="#{pessoa.nome}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">CPF </f:facet>
+				<h:outputText value="#{pessoa.cpf}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Endereço </f:facet>
+				<h:outputText value="#{pessoa.endereco}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Idade</f:facet>
+				<h:outputText value="#{pessoa.idade}" />
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Alterar </f:facet>
+			<h:commandLink value="altera" action="#{pessoaBean.carregar(pessoa)}"/>
+			</h:column>
+			
+			<h:column>
+			<f:facet name="header">Remover </f:facet>
+			<h:commandLink value="remove" action="#{pessoaBean.remover(pessoa)}"/>
+			</h:column>
+			
+		</h:dataTable>
+		</fieldset>
+		
+		<h:commandLink value="Voltar" action="#{pessoaBean.redirecionar}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>

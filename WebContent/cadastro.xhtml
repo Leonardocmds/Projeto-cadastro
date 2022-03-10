@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="titulo">
+		Cadastro
+	</ui:define>
+	<ui:define name="conteudo">
+		<h:form>
+			<fieldset>
+				<legend>Dados do Cliente</legend>
+				<h:panelGrid columns="3">
+
+					<h:outputLabel value="Nome:" for="nome" />
+					<h:inputText id="nome" value="#{pessoaBean.pessoa.nome}" required="true"
+					requiredMessage="O campo não pode estar vazio" />
+					<h:message for="nome"></h:message>
+
+					<h:outputLabel value="CPF:" for="cpf" />
+					<h:inputText id="cpf" value="#{pessoaBean.pessoa.cpf}" required="true"
+					requiredMessage="O campo não pode estar vazio"/>
+					<h:message for="cpf"></h:message>
+
+					<h:outputLabel value="Endereço:" for="endereco" />
+					<h:inputText id="endereco" value="#{pessoaBean.pessoa.endereco}" required="true"
+					requiredMessage="O campo não pode estar vazio"/>
+					<h:message for="endereco"></h:message>
+					
+					<h:outputLabel value="Idade:" for="idade" />
+					<h:inputText id="idade" value="#{pessoaBean.pessoa.idade}" required="true"
+					requiredMessage="O campo não pode estar vazio"/>
+					<h:message for="idade"></h:message>
+
+				</h:panelGrid>
+			</fieldset>
+
+			<br />
+
+			<h:commandButton value="Gravar" action="#{pessoaBean.gravar}">
+				
+			</h:commandButton>
+
+			<br />
+			<br />
+
+			<h:commandLink value="Buscar Clientes"
+				action="#{pessoaBean.buscarCliente}" immediate="true"/>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>
